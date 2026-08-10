@@ -21,3 +21,70 @@ pi:=hom<GL(2,Integers(level*7))->GL(2,Integers(group[2]))|[GL(2,Integers(group[2
 // curves that have mod 15 or mod 30 obstruction do not admit obstruction modulo any other level
 
 
+gp1:=sub<GL(2,Integers(6))|[[2, 5, 3, 4], [5, 1, 0, 5]]>;//"6.8.0-3.a.1.1"
+
+gp2:=sub<GL(2,Integers(6))|[[4, 3, 3, 2], [5, 5, 3, 4]]>;//"6.8.0-3.a.1.2"
+
+gp3:= sub<GL(2,Integers(10))|[[3, 8, 3, 5], [4, 7, 5, 8]]>;//"10.24.0-5.a.2.2"
+
+gp4:=sub<GL(2,Integers(10))|[[1, 9, 0, 9], [8, 3, 7, 8]]>;//"10.24.0-5.a.1.1"
+
+pi6:=hom<GL(2,Integers(120))->GL(2,Integers(6))|[GL(2,Integers(6))!GL(2,Integers(120)).i:i in [1..#Generators(GL(2,Integers(120)))]]>;
+pi10:=hom<GL(2,Integers(120))->GL(2,Integers(10))|[GL(2,Integers(10))!GL(2,Integers(120)).i:i in [1..#Generators(GL(2,Integers(120)))]]>;
+
+D:=CremonaDatabase();
+for label in ["50a1","50a2","50a3","50a4"] do;
+label;
+E:=EllipticCurve(D, label);
+G:=FindOpenImage(E);
+G6:=pi6(G);
+ assert -Identity(GL(2,Integers(6))) in G6 eq false;
+ assert IsConjugate(GL(2,Integers(6)),G6,gp1) eq false;
+ assert IsConjugate(GL(2,Integers(6)),G6,gp2) eq false;
+ assert #LowIndexSubgroups(G6,2) eq 4;
+ for d in [1,-2,-3,6] do;
+ Ed:=QuadraticTwist(E,d);
+ Gd:=FindOpenImage(Ed);
+ Gd6:=pi6(Gd);
+ if IsConjugate(GL(2,Integers(6)),Gd6,gp1) eq true or IsConjugate(GL(2,Integers(6)),Gd6,gp2) eq true then
+ d;
+ IsConjugate(GL(2,Integers(10)),pi10(Gd),gp3);
+ IsConjugate(GL(2,Integers(10)),pi10(Gd),gp4);
+ 
+ end if;
+ end for;
+ print ".........";
+ end for;
+ 
+/*50a1
+-2
+false
+false
+6
+false
+false
+.........
+50a2
+-2
+false
+false
+6
+false
+false
+.........
+50a3
+-2
+false
+false
+6
+false
+false
+.........
+50a4
+-2
+false
+false
+6
+false
+false
+.........*/
