@@ -53,3 +53,12 @@ g:= x+1; // model taken from LMFDB
 C:=EllipticCurve(f,g);
 Rank(C); // 0 true
 #TorsionSubgroup(C); //8 points, 4 are cusps, 4 give rise to two non-CM j-invariants
+
+//10.24.1.b.1 and 10.24.1.b.2 (both have isomorphic models)
+
+f:=  x^3 - x^2 - 1033*x - 12438; 
+C:=EllipticCurve(f);
+Rank(C); // 0 true
+#TorsionSubgroup(C);// 2 both are cusps
+
+
