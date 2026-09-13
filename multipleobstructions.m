@@ -88,3 +88,16 @@ false
 false
 false
 .........*/
+
+
+D:=CremonaDatabase();
+for tuple in [<"50b1",120,6>,<"50a1",120,10>,<"450b1",120,10>,<"162c1",504,14>,<"162b1",504,14>] do;
+    
+    E:=EllipticCurve(D, tuple[1]);
+    G:=FindOpenImage(E);
+    pid:=hom<GL(2,Integers(tuple[2]))->GL(2,Integers(tuple[3]))|[GL(2,Integers(tuple[3]))!GL(2,Integers(tuple[2])).i:i in [1..#Generators(GL(2,Integers(tuple[2])))]]>;
+    Gd:=pid(G);
+  
+    assert F1(Gd) lt 1;
+    
+end for;
