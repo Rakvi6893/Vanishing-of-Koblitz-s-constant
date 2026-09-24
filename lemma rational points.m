@@ -1,3 +1,6 @@
+ChangeDirectory("/Users/Jacob/OpenImage-master"); // Change this line as needed.
+load "main/FindOpenImage.m";
+
 D:=CremonaDatabase();
 
 pi15:=hom<GL(2,Integers(120))->GL(2,Integers(15))|[GL(2,Integers(15))!GL(2,Integers(120)).i:i in [1..#Generators(GL(2,Integers(120)))]]>;
