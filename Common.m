@@ -13,26 +13,6 @@ function F1(G)
     return (&+[c[2] : c in C | not IsUnit(1 - Trace(c[3]) + Determinant(c[3]))]) / #G;
 end function;
 
-// Test whether G has a primitive congruence obstruction modulo m, where 
-// m is the order of the base ring of G
-function HasPrimitiveCongObstruction(G)
-    m := #BaseRing(G);
-    assert m ge 2;
-
-    if F1(G) ne 1 then
-        return false;
-    end if;
-
-    for p in PrimeDivisors(m) do
-        d := m div p;
-        if d ge 2 and F1(GL2Project(G,d)) eq 1 then
-            return false;
-        end if;
-    end for;
-
-    return true;
-end function;
-
 // Prime level Galois images of level <= 13; see Table 3 
 // of Sutherland's "Computing images of Galois representations 
 // attached to elliptic curves" article. 
