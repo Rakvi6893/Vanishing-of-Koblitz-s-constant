@@ -1,3 +1,6 @@
+ChangeDirectory("/Users/Jacob/OpenImage-master"); // Change this line as needed.
+load "main/FindOpenImage.m";
+
 D:=CremonaDatabase();
 for label in ["450d4","450d3","450d1","450d2","14400dy4","14400dy3","14400dy1","14400dy2"] do;
 label;
