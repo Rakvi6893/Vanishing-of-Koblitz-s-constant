@@ -1,6 +1,6 @@
 # Congruence Obstructions in the Refined Koblitz Conjecture
 
-This repository contains Magma code accompanying the paper *Congruence obstructions in the refined Koblitz conjecture* by Sung Min Lee, Jacob Mayle, and Rakvi. 
+This repository contains Magma code accompanying the paper *[Congruence obstructions in the refined Koblitz conjecture](https://arxiv.org/abs/2609.30573)* by Sung Min Lee, Jacob Mayle, and Rakvi. 
 
 ## Installation Instructions
 
